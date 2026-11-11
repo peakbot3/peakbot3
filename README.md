@@ -15,7 +15,7 @@ See `bot/README.md`.
 ## Discord compliance
 - Official bot API only, honours rate limits (429 Retry-After) with extra delays on bulk actions.
 - OAuth scopes limited to `identify guilds`, `state` check, cooldown between authorize attempts.
-- No mass pings from user content; DMs only opt-in.
+- No mass pings from user content; DMs only opt-in (welcome DM, ticket-close summary).
 - Never commit your bot token / client secret — they are stored in the admin panel, not in code.
 
 ## Render setup (district99.net)
