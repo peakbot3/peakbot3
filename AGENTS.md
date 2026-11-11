@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- The Python bot stays one file (`bot/peak_bot.py`) so the owner can replace a single file on the host.
+- New dashboard options default to off and are added under `defaultSettings()`; `deepMerge` fills them into old saved settings, so no database change is needed.
+- The bot's local data backup is stored in the `guild_settings` row `peak_backup` (non-numeric id); the sync GET must keep excluding it.
+- The bot must not add Discord API calls on page loads or tight loops: one game per channel, max 3 big games per server, button clicks answered via the interaction response.
