@@ -1,0 +1,124 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Chakra Petch", "IBM Plex Sans Arabic", sans-serif;
+  --font-sans: "IBM Plex Sans Arabic", "Chakra Petch", sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-neon: var(--neon);
+  --color-indigo: var(--indigo);
+  --color-discord: var(--discord);
+  --color-embed: var(--embed);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.15 0.025 250);
+  --foreground: oklch(0.95 0.01 230);
+  --card: oklch(0.2 0.03 250 / 70%);
+  --card-foreground: oklch(0.95 0.01 230);
+  --popover: oklch(0.2 0.03 250);
+  --popover-foreground: oklch(0.95 0.01 230);
+  --primary: oklch(0.82 0.15 205);
+  --primary-foreground: oklch(0.16 0.03 250);
+  --secondary: oklch(0.26 0.035 255);
+  --secondary-foreground: oklch(0.95 0.01 230);
+  --muted: oklch(0.24 0.03 255);
+  --muted-foreground: oklch(0.68 0.03 240);
+  --accent: oklch(0.3 0.06 270);
+  --accent-foreground: oklch(0.96 0.01 230);
+  --destructive: oklch(0.63 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --success: oklch(0.75 0.17 155);
+  --border: oklch(0.32 0.035 250);
+  --input: oklch(0.3 0.035 250);
+  --ring: oklch(0.82 0.15 205);
+  --neon: oklch(0.85 0.15 200);
+  --indigo: oklch(0.58 0.2 275);
+  --discord: oklch(0.58 0.2 275);
+  --embed: oklch(0.24 0.012 265);
+  --gradient-hero: radial-gradient(ellipse at top, oklch(0.82 0.15 205 / 22%), transparent 60%),
+    radial-gradient(ellipse at bottom right, oklch(0.58 0.2 275 / 25%), transparent 55%);
+  --gradient-primary: linear-gradient(135deg, var(--neon), var(--indigo));
+  --shadow-glow: 0 0 40px -8px oklch(0.85 0.15 200 / 55%);
+  --sidebar: oklch(0.17 0.028 250);
+  --sidebar-foreground: oklch(0.9 0.01 230);
+  --sidebar-primary: oklch(0.82 0.15 205);
+  --sidebar-primary-foreground: oklch(0.16 0.03 250);
+  --sidebar-accent: oklch(0.26 0.04 255);
+  --sidebar-accent-foreground: oklch(0.96 0.01 230);
+  --sidebar-border: oklch(0.3 0.03 250);
+  --sidebar-ring: oklch(0.82 0.15 205);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  h1, h2, h3 { font-family: var(--font-display); }
+}
+
+@utility glass {
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+@utility text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility neon-text {
+  color: var(--neon);
+  text-shadow: 0 0 18px oklch(0.85 0.15 200 / 70%);
+}
+@utility bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+@utility animate-float { animation: float 5s ease-in-out infinite; }
